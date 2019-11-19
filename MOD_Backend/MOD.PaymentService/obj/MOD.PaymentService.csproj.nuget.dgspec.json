@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj": {}
+    "D:\\DotNetTraining\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj": {
+    "D:\\DotNetTraining\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj",
+        "projectUniqueName": "D:\\DotNetTraining\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj",
         "projectName": "MOD.PaymentService",
-        "projectPath": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj",
+        "projectPath": "D:\\DotNetTraining\\MOD_Backend\\MOD.PaymentService\\MOD.PaymentService.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MOD.PaymentService\\obj\\",
+        "outputPath": "D:\\DotNetTraining\\MOD_Backend\\MOD.PaymentService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MODUserservice\\MODUserservice.csproj",
+      "projectUniqueName": "D:\\DotNetTraining\\MOD_Backend\\MODUserservice\\MODUserservice.csproj",
       "projectName": "MODUserservice",
-      "projectPath": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MODUserservice\\MODUserservice.csproj",
+      "projectPath": "D:\\DotNetTraining\\MOD_Backend\\MODUserservice\\MODUserservice.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\source\\repos\\MOD_Backend\\MODUserservice\\obj\\",
+      "outputPath": "D:\\DotNetTraining\\MOD_Backend\\MODUserservice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
