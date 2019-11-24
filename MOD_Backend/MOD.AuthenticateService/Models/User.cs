@@ -11,7 +11,7 @@ namespace MOD.AuthenticateService.Models
     public class User
     {
         [Key]
-        public long Id { get; set; }
+        public long Uid { get; set; }
 
         public string Name { get; set; }
 
@@ -22,6 +22,8 @@ namespace MOD.AuthenticateService.Models
         public string Password { get; set; }
 
         public bool Active { get; set; }
+        public IEnumerable<Training> Training { get; set; }
+        public IEnumerable<Payment> Payment { get; set; }
 
 
     }

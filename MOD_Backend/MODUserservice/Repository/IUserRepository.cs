@@ -10,8 +10,10 @@ namespace MODUserservice.Repository
     {
         void AddUser(User item);
         void DeleteUser(long id);
-        void BlockUser(int id);
+        void BlockUser(long id);
+        void UnBlockUser(long id);
         User GetById(int id);
+        List<User> GetAll();
         void UpdatePassword(User item);
         //void UpdateDetails(User item);
         List<Mentor> SearchMentor(string Skill);

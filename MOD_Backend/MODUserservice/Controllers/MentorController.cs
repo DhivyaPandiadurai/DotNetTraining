@@ -21,13 +21,15 @@ namespace MODUserservice.Controllers
 
         // GET: api/Mentor
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("GetAllMentor")]
+        public List<Mentor> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _repository.GetAll();
         }
 
         // GET: api/Mentor/5
         [HttpGet("{id}", Name = "Get")]
+        [Route("GetById/{id}")]
         public string Get(int id)
         {
             return "value";
@@ -44,7 +46,7 @@ namespace MODUserservice.Controllers
 
         // PUT: api/Mentor/5
         [HttpPut("{id}")]
-        [Route("Update/")]
+        [Route("Update")]
 
         public void Put([FromBody]Mentor item)
         {
@@ -59,9 +61,17 @@ namespace MODUserservice.Controllers
         {
             _repository.DeleteMentor(id);
         }
-        public void Block(int id)
+        [HttpPut("{id}")]
+        [Route("BlockMentor/{id}")]
+        public void Block(long id)
         {
             _repository.BlockMentor(id);
+        }
+        [HttpPut("{id}")]
+        [Route("UnBlockMentor/{id}")]
+        public void UnBlock(long id)
+        {
+            _repository.UnBlockMentor(id);
         }
     }
 }

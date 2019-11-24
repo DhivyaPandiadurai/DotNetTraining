@@ -14,10 +14,14 @@ namespace MOD.TrainingService.Repository
         {
             _context = context;
         }
+        public List<Training> GetAll()
+        {
+            return _context.training.ToList();
+        }
 
         public void AddTraining(Training item)
         {
-            _context.trainings.Add(item);
+            _context.training.Add(item);
             _context.SaveChanges();
         }
 
@@ -25,6 +29,16 @@ namespace MOD.TrainingService.Repository
         {
             _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
+        }
+        public List<Training> GetTrainingByUserId(long id)
+        {
+            return _context.training.Where(i => i.Uid == id).ToList();
+
+        }
+        public List<Training> GetTrainingByMentorId(long id)
+        {
+            return _context.training.Where(i => i.Mid == id).ToList();
+
         }
     }
 }

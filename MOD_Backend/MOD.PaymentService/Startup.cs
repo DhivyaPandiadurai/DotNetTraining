@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MOD.PaymentService.Context;
+using MOD.PaymentService.Repository;
 
 namespace MOD.PaymentService
 {
@@ -25,6 +28,18 @@ namespace MOD.PaymentService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<PaymentContext>
+          (opts => opts.UseSqlServer(Configuration["ConnectionString:MOD_DB"]));
+            services.AddTransient<IPaymentRepository, PaymentRepository>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowMyOrgin", builder =>
+                 builder.AllowAnyOrigin()
+                 .AllowAnyHeader()
+                 .AllowAnyMethod()
+                );
+            });
+
             services.AddControllers();
         }
 
@@ -41,6 +56,7 @@ namespace MOD.PaymentService
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("AllowMyOrgin");
 
             app.UseEndpoints(endpoints =>
             {

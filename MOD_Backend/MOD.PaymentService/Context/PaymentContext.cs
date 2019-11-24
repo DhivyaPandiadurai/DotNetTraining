@@ -11,7 +11,13 @@ namespace MOD.PaymentService.Context
     {
 
         public  PaymentContext(DbContextOptions<PaymentContext> options) : base(options) { }
-        public DbSet<Payment> payments { get; set; }
+       
+
+        public DbSet<Mentor> mentors { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Technology> technology { get; set; }
+        public DbSet<Training> training { get; set; }
+        public DbSet<Payment> payment { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Payment>().HasData(new Payment

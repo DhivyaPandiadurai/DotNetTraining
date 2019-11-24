@@ -20,9 +20,10 @@ namespace MODUserservice.Controllers
         }
         // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("GetAllUser")]
+        public List<User> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _repository.GetAll();
         }
 
         //[HttpGet("{id}", Name = "Get")]
@@ -43,7 +44,7 @@ namespace MODUserservice.Controllers
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        [Route("Update/")]
+        [Route("Update")]
 
         public IActionResult Put(User item)
         {
@@ -54,7 +55,7 @@ namespace MODUserservice.Controllers
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         [Route("Delete/{id}")]
-        public void Delete(int id)
+        public void Delete(long id)
         {
             _repository.DeleteUser(id);
         }
@@ -68,6 +69,18 @@ namespace MODUserservice.Controllers
         public List<Mentor> Get(String id)
         {
             return _repository.SearchMentor(id);
+        }
+        [HttpPut("{id}")]
+        [Route("BlockUser/{id}")]
+        public void Block(long id)
+        {
+            _repository.BlockUser(id);
+        }
+        [HttpPut("{id}")]
+        [Route("UnBlockUser/{id}")]
+        public void UnBlock(long id)
+        {
+            _repository.UnBlockUser(id);
         }
     }
 }

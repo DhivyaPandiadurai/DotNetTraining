@@ -16,9 +16,13 @@ namespace MOD.AuthenticateService.Context
         //    optionsBuilder.UseSqlServer(@"Server=DESKTOP-J33QLHE\SQLDB;Database=EmpDB;Trusted_Connection=True;");
         //}
 
+
+
         public DbSet<Mentor> mentors { get; set; }
         public DbSet<User> users { get; set; }
-
+        public DbSet<Technology> technology { get; set; }
+        public DbSet<Training> training { get; set; }
+        public DbSet<Payment> payment { get; set; }
 
     }
 }

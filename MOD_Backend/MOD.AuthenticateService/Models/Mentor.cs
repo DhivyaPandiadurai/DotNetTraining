@@ -25,11 +25,12 @@ namespace MOD.AuthenticateService.Models
         public string Primary_skill { get; set; }
 
         public string timeslot { get; set; }
-       
 
         public bool availability { get; set; }
 
         public bool Active { get; set; }
+        public IEnumerable<Payment> Payment { get; set; }
 
+        public IEnumerable<Training> Training { get; set; }
     }
 }

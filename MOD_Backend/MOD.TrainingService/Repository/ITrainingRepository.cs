@@ -9,6 +9,9 @@ namespace MOD.TrainingService.Repository
    public interface ITrainingRepository
     {
         void AddTraining(Training item);
+        List<Training> GetAll();
         void UpdateTraining(Training item);
+        List<Training> GetTrainingByUserId(long id);
+        List<Training> GetTrainingByMentorId(long id);
     }
 }

@@ -8,6 +8,7 @@ namespace MOD.PaymentService.Repository
 {
     public interface IPaymentRepository
     {
+        List<Payment> GetAll();
         void AddPaymentDetails(Payment item);
     }
 }

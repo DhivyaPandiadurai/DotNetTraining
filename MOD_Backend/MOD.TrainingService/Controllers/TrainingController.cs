@@ -24,10 +24,12 @@ namespace MOD.TrainingService.Controllers
         }
         // GET: api/Training
         [HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        [Route("GetAllTraining")]
+
+        public List<Training> Get()
+        {
+            return _repository.GetAll();
+        }
 
         //// GET: api/Training/5
         //[HttpGet("{id}", Name = "Get")]
@@ -45,6 +47,20 @@ namespace MOD.TrainingService.Controllers
             return Ok("Record Added");
         }
 
+        [HttpGet("{id}", Name = "Get")]
+        [Route("GetTrainingByUser/{id}")]
+        public List<Training> Get(long id)
+        {
+            return _repository.GetTrainingByUserId(id);
+        }
+
+        [HttpGet("{id}", Name = "Get")]
+        [Route("GetTrainingByMentor/{id}")]
+        public List<Training> GetbyMentor(long id)
+        {
+            return _repository.GetTrainingByMentorId(id);
+
+        }
         // PUT: api/Training/5
         [HttpPut("{id}")]
         [Route("UpdateTraining/{id}")]

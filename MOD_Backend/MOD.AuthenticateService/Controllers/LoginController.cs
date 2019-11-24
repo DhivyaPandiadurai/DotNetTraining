@@ -20,16 +20,18 @@ namespace MOD.AuthenticateService.Controllers
         }
 
         [HttpGet]
-        [Route("Validate/{id}/{pwd}")]
+        [Route("Validate/{email}/{pwd}")]
         public Token Get(string email, string pwd)
         {
-            if (_repository.UserLogin(email, pwd))
+            if (_repository.UserLogin(email, pwd)!=null)
             {
-                return new Token() { message = "User", token = GetToken() };
+                User response = _repository.UserLogin(email, pwd);
+                return new Token() { message = "User", token = response.Uid.ToString()};
             }
-            else if (_repository.MentorLogin(email, pwd))
+            else if (_repository.MentorLogin(email, pwd)!=null)
             {
-                return new Token() { message = "Mentor", token = GetToken() };
+                Mentor response = _repository.MentorLogin(email, pwd);
+                return new Token() { message = "Mentor", token = response.Mid.ToString() };
             }
             else if (email == "123" && pwd == "admin")
             {

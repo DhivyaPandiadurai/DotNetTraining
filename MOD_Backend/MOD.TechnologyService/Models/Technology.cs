@@ -10,18 +10,17 @@ namespace MOD.TechnologyService.Models
     [Table("Technology")]
     public class Technology
     {
-        [Key]
+      [Key]
         public long SkillId { get; set; }
         [StringLength(20)]
-         public string SkillName { get; set; }
-        
+        public string SkillName { get; set; }
+
         public string TableOfContent { get; set; }
 
         public double Fee { get; set; }
 
         public int Duration { get; set; }
-
-
+        public IEnumerable<Training> Training { get; set; }
 
     }
 }

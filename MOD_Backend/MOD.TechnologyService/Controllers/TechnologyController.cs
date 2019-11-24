@@ -24,10 +24,11 @@ namespace MOD.TechnologyService.Controllers
         }
         // GET: api/Technology
         [HttpGet]
-        //public List<Technology> Get()
-        //{
-        //    return _repository.GetAll();
-        //}
+        [Route("GetTechnology")]
+        public List<Technology> get()
+        {
+            return _repository.GetAll();
+        }
 
         //// GET: api/Technology/5
         //[HttpGet("{id}", Name = "Get")]

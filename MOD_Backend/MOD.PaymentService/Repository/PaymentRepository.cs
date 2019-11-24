@@ -14,9 +14,14 @@ namespace MOD.PaymentService.Repository
         {
             _context = context;
         }
+        public List<Payment> GetAll()
+        {
+            return _context.payment.ToList();
+        }
+
         public void AddPaymentDetails(Payment item)
         {
-            _context.payments.Add(item);
+            _context.payment.Add(item);
             _context.SaveChanges();
         }
     }

@@ -14,7 +14,6 @@ C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.RazorTargetAssemblyInfo.cache
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.dll
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.pdb
-C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.csprojAssemblyReference.cache
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.0\Microsoft.Data.SqlClient.dll
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -108,3 +107,4 @@ C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Dell\source\repos\MOD_Backend\MOD.PaymentService\obj\Debug\netcoreapp3.0\MOD.PaymentService.csprojAssemblyReference.cache

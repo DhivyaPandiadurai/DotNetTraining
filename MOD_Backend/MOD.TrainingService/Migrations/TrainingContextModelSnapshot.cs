@@ -19,6 +19,98 @@ namespace MOD.TrainingService.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("MOD.TrainingService.Models.Mentor", b =>
+                {
+                    b.Property<long>("Mid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Mobile")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Primary_skill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("availability")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("exp")
+                        .HasColumnType("int");
+
+                    b.Property<string>("timeslot")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Mid");
+
+                    b.ToTable("Mentor");
+                });
+
+            modelBuilder.Entity("MOD.TrainingService.Models.Payment", b =>
+                {
+                    b.Property<long>("Pid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Mentor_Amount")
+                        .HasColumnType("float");
+
+                    b.Property<long>("Mid")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("Uid")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("amount")
+                        .HasColumnType("float");
+
+                    b.HasKey("Pid");
+
+                    b.HasIndex("Mid");
+
+                    b.HasIndex("Uid");
+
+                    b.ToTable("Payment");
+                });
+
+            modelBuilder.Entity("MOD.TrainingService.Models.Technology", b =>
+                {
+                    b.Property<long>("SkillId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Fee")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SkillName")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("TableOfContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SkillId");
+
+                    b.ToTable("Technology");
+                });
+
             modelBuilder.Entity("MOD.TrainingService.Models.Training", b =>
                 {
                     b.Property<long>("TrainingID")
@@ -29,19 +121,19 @@ namespace MOD.TrainingService.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("MID")
+                    b.Property<long>("Mid")
                         .HasColumnType("bigint");
 
                     b.Property<long>("Progress")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("SkillID")
+                    b.Property<long>("SkillId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("UID")
+                    b.Property<long>("Uid")
                         .HasColumnType("bigint");
 
                     b.Property<float>("rating")
@@ -55,6 +147,12 @@ namespace MOD.TrainingService.Migrations
 
                     b.HasKey("TrainingID");
 
+                    b.HasIndex("Mid");
+
+                    b.HasIndex("SkillId");
+
+                    b.HasIndex("Uid");
+
                     b.ToTable("Training");
 
                     b.HasData(
@@ -62,15 +160,78 @@ namespace MOD.TrainingService.Migrations
                         {
                             TrainingID = 1L,
                             EndDate = new DateTime(2018, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MID = 122L,
+                            Mid = 122L,
                             Progress = 25L,
-                            SkillID = 345L,
+                            SkillId = 345L,
                             StartDate = new DateTime(2017, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UID = 1234L,
+                            Uid = 1234L,
                             rating = 3.5f,
                             status = "Not Completed",
                             timeslot = "evening"
                         });
+                });
+
+            modelBuilder.Entity("MOD.TrainingService.Models.User", b =>
+                {
+                    b.Property<long>("Uid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Mobile")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Uid");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MOD.TrainingService.Models.Payment", b =>
+                {
+                    b.HasOne("MOD.TrainingService.Models.Mentor", "Mentor")
+                        .WithMany("Payment")
+                        .HasForeignKey("Mid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MOD.TrainingService.Models.User", "User")
+                        .WithMany("Payment")
+                        .HasForeignKey("Uid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MOD.TrainingService.Models.Training", b =>
+                {
+                    b.HasOne("MOD.TrainingService.Models.Mentor", "Mentor")
+                        .WithMany("Training")
+                        .HasForeignKey("Mid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MOD.TrainingService.Models.Technology", "Technology")
+                        .WithMany("Training")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MOD.TrainingService.Models.User", "User")
+                        .WithMany("Training")
+                        .HasForeignKey("Uid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

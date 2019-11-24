@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,8 @@ namespace MODUserservice.Models
     [Table("Users")]
     public class User
     {
-        public long Id { get; set; }
+     [Key]  
+        public long Uid { get; set; }
 
         public string Name { get; set; }
 
@@ -20,7 +22,7 @@ namespace MODUserservice.Models
         public string Password { get; set; }
 
         public bool Active { get; set; }
-
-
+         public IEnumerable<Training> Training { get; set; }
+        public IEnumerable<Payment> Payment { get; set; }
     }
 }

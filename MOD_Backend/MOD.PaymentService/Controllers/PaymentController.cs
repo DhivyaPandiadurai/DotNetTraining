@@ -26,10 +26,15 @@ namespace MOD.PaymentService.Controllers
         }
         // GET: api/Payment
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("GetPayment")]
+        public List<Payment> get()
         {
-            return new string[] { "value1", "value2" };
+            return _repository.GetAll();
         }
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET: api/Payment/5
         [HttpGet("{id}", Name = "Get")]

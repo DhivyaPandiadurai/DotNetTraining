@@ -17,11 +17,15 @@ namespace MODUserservice.Context
 
         public DbSet<Mentor> mentors { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<Technology> technology { get; set; }
+        public DbSet<Training> training { get; set; }
+        public DbSet<Payment> payment { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(new User
             {
-                Id=12,
+                Uid=12,
                 Name="D",
                 Email="abc@gmail.com",
                 Mobile=9876543212,

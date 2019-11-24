@@ -14,34 +14,34 @@ namespace MOD.AuthenticateService.Repository
         {
             _context = context;
         }
-        public bool MentorLogin(string email, string pwd)
+        public Mentor MentorLogin(string email, string pwd)
         {
-            Mentor obj = _context.mentors.SingleOrDefault(data => data.Email == email && data.Password == pwd);
-            if (obj != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _context.mentors.SingleOrDefault(data => data.Email == email && data.Password == pwd);
+            //if (obj != null)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
 
 
 
         }
 
-        public bool UserLogin(string email, string pwd)
+        public User UserLogin(string email, string pwd)
         {
 
-            User obj = _context.users.SingleOrDefault(data => data.Email == email && data.Password == pwd);
-            if (obj != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _context.users.SingleOrDefault(data => data.Email == email && data.Password == pwd);
+            //if (obj != null)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
 
         }
     }
